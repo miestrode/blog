@@ -1,0 +1,14 @@
+{% macro page_in_list(page) %}
+<header class="entry-header">
+                    <h2>{{ page.title }}</h2>
+</header>
+{% if page.description %}
+<section class="entry-content">{{ page.description | safe }}</section>
+{% endif %}
+<footer class="entry-footer">
+                    <time>{{ page.date | date(format="%B %e, %Y") }}</time>
+                    <span> &middot; </span>
+                    <span aria-hidden="true" class="post-reading-time">{{ page.reading_time }} minute read</span>
+</footer>
+<a class="entry-link" href="{{ page.permalink }}"></a>
+{% endmacro page_in_list %}

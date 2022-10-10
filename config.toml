@@ -1,0 +1,22 @@
+# Options
+compile_sass = true
+generate_feed = true
+taxonomies = [{ name = "tags", paginate_by = 5 }]
+smart_punctuation = true
+minify_html = true
+
+# Themeing
+theme = "zola-paper"
+
+# Metadata
+title = "Looking both ways"
+description = "A blog about programming, mathematics, f*** ups, ideas and everything between."
+base_url = "https://miestro.de"
+
+[extra]
+author = "Yoav Grimland"
+links = [{name = "Tags", url = "/tags/"}, {name = "About this blog", url = "/about/"}, {name = "Atom feed", url = "/atom.xml"}]
+
+[markdown]
+highlight_code = true
+highlight_theme = "ayu-dark"

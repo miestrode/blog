@@ -1,0 +1,22 @@
+{% extends "index.html" %}
+
+{% block body %}
+<!-- Render math -->
+<link rel="stylesheet" href="{{ get_url(path="katex.css") }}">
+<script defer src="{{ get_url(path="katex.js")}}"></script>
+<script defer src="{{ get_url(path="auto-render.js") }}"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+            delimiters: [
+              {left: "$$", right: "$$", display: true},
+              {left: "$", right: "$", display: false},
+            ]
+        });
+    });
+</script>
+
+<div class="not-found">
+    $$404\iff\nexists x\in\mathbb{P}\left(q=\mathtt{path}\left(x\right)\right)\iff\lnot\mathtt{found}$$
+</div>
+{% endblock body %}
