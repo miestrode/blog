@@ -4,6 +4,7 @@ generate_feed = true
 taxonomies = [{ name = "tags", paginate_by = 5 }]
 smart_punctuation = true
 minify_html = true
+output_dir = "build"
 
 # Themeing
 theme = "zola-paper"
