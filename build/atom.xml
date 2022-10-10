@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+	<title>Looking both ways</title>
+	<subtitle>A blog about programming, mathematics, f*** ups, ideas and everything between.</subtitle>
+	<link href="https://miestro.de/atom.xml" rel="self" type="application/atom+xml"/>
+  <link href="https://miestro.de"/>
+	<generator uri="https://www.getzola.org/">Zola</generator>
+	<updated>2022-10-07T00:00:00+00:00</updated>
+	<id>https://miestro.de/atom.xml</id>
+	<entry xml:lang="en">
+		<title>Generalizing exponentation laws</title>
+		<published>2022-10-07T00:00:00+00:00</published>
+		<updated>2022-10-07T00:00:00+00:00</updated>
+		<link rel="alternate" href="https://miestro.de/posts/generalizing-exponentiation-laws/" type="text/html"/>
+		<id>https://miestro.de/posts/generalizing-exponentiation-laws/</id>
+		<content type="html">&lt;p&gt;&lt;em&gt;Note: This article, despite it&#x27;s elementary nature, assumes some basic familiarity with sum notation, infinite sums, combinatorics ($n$ choose $k$) and logarithms&lt;&#x2F;em&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;First, you were taught basic arithmetic: counting, multiplying, dividing and such. Then, you learned the &amp;quot;rules&amp;quot; governing it.
+Eventually, you learned about a fairly useful operation, known as exponentation. Exponentation, most would agree, is a very useful operation in Mathematics,
+appearing everywhere from polynomials, to complex numbers, to number theory, combinatorics and more.
+The most common definition of exponentation is as repeated multiplication. For instance, $2^4$ is $2 \times 2 \times 2 \times 2$. In &amp;quot;general&amp;quot;:&lt;&#x2F;p&gt;
+&lt;p&gt;$$x^n = \underbrace{x \times x \times \dots \times x \times x}_{\text{$n$ times}}$$&lt;&#x2F;p&gt;
+&lt;p&gt;Alongside exponentation, students usually learn the exponentation laws, which are certain identities governing the operation.
+These laws allow you for example, to simplify $2^3 \times 2^4$ into the much simpler $2^7$.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;the-heros-of-this-story&quot;&gt;The heros of this story&lt;&#x2F;h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Sum law: $a^b \times a^c = a^{b + c}$&lt;&#x2F;li&gt;
+&lt;li&gt;Evil sum law: $\frac{a^b}{a^c} = a^{b - c}$&lt;&#x2F;li&gt;
+&lt;li&gt;Product law: $(a^b)^c = a^{b \times c}$&lt;&#x2F;li&gt;
+&lt;li&gt;Distributive law: $(a \times b)^c = a^c \times b^c$&lt;&#x2F;li&gt;
+&lt;li&gt;Division law: $\frac{a^c}{b^c}=(\frac{a}{b})^c$&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;del&gt;Commutative law: $a^b = b^a$&lt;&#x2F;del&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;del&gt;Associative law: $a^{(b^c)} = (a^b)^c$&lt;&#x2F;del&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;del&gt;Distributive law 2 - Electric Boogalo: $(a + b)^n = a^n + b^n$&lt;&#x2F;del&gt;&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;Okay, those last ones aren&#x27;t all that true, but the rest are absolutely fine. In most classes, they are also proved (kind of)!
+For the sake of brevity, I won&#x27;t show the usual proofs for all of them, but instead, give an example.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;a-first-attempt-at-a-proof&quot;&gt;A first attempt at a proof&lt;&#x2F;h2&gt;
+&lt;p&gt;Let&#x27;s say we were trying to prove the sum law, how might we do it? We might first look back to the definition we gave exponentation, and continue. Basically:
+$$a^b \times a^c = \underbrace{(a \times a \times \dots \times a \times a)}_{\text{$b$ times}} \times \underbrace{(a \times a \times \dots \times a \times a)}_{\text{$c$ times}}$$&lt;&#x2F;p&gt;
+&lt;p&gt;But look! There is no real separator between the two groups of products in here, so we should be able to say this equals:
+$$\underbrace{a \times a \times \dots \times a \times a \times a \times a \times \dots \times a \times a}_{\text{$b + c$ times}}$$&lt;&#x2F;p&gt;
+&lt;p&gt;Now notice again, by our original definition, this is the same as just writing $a^{b + c}$.
+As required! Just like that, using some simple reasoning, we were able to prove a really useful identity!&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;the-troubles-with-non-natural-powers&quot;&gt;The troubles with non-natural powers&lt;&#x2F;h2&gt;
+&lt;p&gt;All of what we have seen is absolutely fine, but begins to break down once students start learning about non-natural powers.
+The first problem, is that we haven&#x27;t actually defined yet what it means to raise a number to a non-natural number.
+The second one is that we still need to show our rules even hold for these non-natural powers (assuming they do at all).&lt;&#x2F;p&gt;
+&lt;p&gt;This is where pedagogy fails, often neglecting to explain to students how either non-natural powers work, and why our laws here still work with them.
+In this article however, we will tread where teachers dare not, and shed some lights on this problem. Before we proceed however, we should make some definitions.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;on-the-natural-base-limits-and-exp-x&quot;&gt;On the natural base, limits and $\exp(x)$&lt;&#x2F;h2&gt;
+&lt;p&gt;If we are going to define exponentation in any way, we should probably first look for a starting point, such as $e$.
+It has many definitions, but one of the most common ones is as this infinite sum: $\sum_{n = 0}^{\infty} \frac{1}{n!}$.&lt;&#x2F;p&gt;
+&lt;p&gt;Now that we have $e$, the next step is to acquire $e^x$, which is sometimes also written as $\exp(x)$. I will use this notation for the time being,
+to clairify this is just a definition, not an &amp;quot;equality&amp;quot; or identity by the traditional sense.&lt;&#x2F;p&gt;
+&lt;p&gt;Again, a common definition for $\exp(x)$, which is quite &lt;em&gt;natural&lt;&#x2F;em&gt; to use after our first definition for $e$ is $\sum_{n = 0}^{\infty} \frac{x^n}{n!}$.
+Questions should immediately start popping up, such as:
+&amp;quot;Is there a reason define $\exp(x)$ as such?&amp;quot;, &amp;quot;Can we use $e$ to define all of exponentation?&amp;quot; and
+&amp;quot;When are the other definitions (such as $\lim_{n \to \infty} (1 + \frac{1}{n})^n$) useful?&amp;quot;.&lt;&#x2F;p&gt;
+&lt;p&gt;As it turns out, the answer to the first two questions, is yes! The last however, is a bit out of scope for this article.
+During the rest of this article, we will spend most of our time showing why this is the case. However, as you will see, it will be best to first show something more fundemental.&lt;&#x2F;p&gt;
+&lt;p&gt;Before we do that though, you will have to know you about a very interesting technique, known as the &amp;quot;Cauchy product&amp;quot;.
+Briefly, the Cauchy product of two infinite, &lt;em&gt;convergent&lt;&#x2F;em&gt;, sums, $a$ and $b$ is:&lt;&#x2F;p&gt;
+&lt;p&gt;$$(\sum_{i = 0}^\infty a_i)(\sum_{j = 0}^\infty b_j) = \sum_{k = 0}^\infty \sum_{l = 0}^k a_l b_{k - l}$$&lt;&#x2F;p&gt;
+&lt;p&gt;&amp;quot;Wait, what? A sum of sums?&amp;quot; Indeed. This might look intimidating at first, so it might be worth it to take some time just to understand what is even being said here.&lt;&#x2F;p&gt;
+&lt;p&gt;Ready for more? In the spirt of this post, we should probably prove this that this equality above is indeed true.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;the-highly-informal-proof-to-give-you-some-intuition&quot;&gt;The (highly informal) proof, to give you some intuition&lt;&#x2F;h3&gt;
+&lt;p&gt;Let us consider for a moment the distributive law for multiplication and addition:&lt;&#x2F;p&gt;
+&lt;p&gt;$$a(b + c) = ab + ac$$&lt;&#x2F;p&gt;
+&lt;p&gt;A more general version of it works for expressions of the form $(a_1 + a_2 + \dots + a_{n - 1} + a_n)(b_1 + b_2 + \dots + b_{n - 1} + b_n)$, and turns them into:&lt;&#x2F;p&gt;
+&lt;p&gt;$$\sum_{i = 0}^n \sum_{j = 0}^n a_i b_j$$&lt;&#x2F;p&gt;
+&lt;p&gt;An obvious idea now is to use something in the spirit of this identity, but this quickly fails, as we get a resulting sum that looks like
+$\sum_{i = 0}^\infty \sum_{j = 0}^\infty a_i b_j$. Whilst this is not wrong, it is not useful to us, because each term of this new sum is actually a sum of infinitely many terms,
+which is something we want to avoid, in order to be able to do more things later on. Despite this, our efforts will not be in vain,
+because constructing the same terms seen in the distributive law, i.e: going over all all combinations,
+is really the core of the Cauchy product (alongside compressing two infinite sums, two limits, into one).&lt;&#x2F;p&gt;
+&lt;p&gt;With this in mind, we now have a clear goal of what we want to do. We want to show that no two combinations of elements from each series are the same
+(and of course that we visit all combinations, although this is quite obvious and will not be shown here). As for how we show that, this turns out to be quite easy.&lt;&#x2F;p&gt;
+&lt;p&gt;If we fix a particular value for $k$ (in the Cauchy Product, far above), then only $n$ can change, obviously. For every $n$, each second index, $n - k$ is also different.
+Therefore, each choice of first index, $k$, yields a unique second index, for different $n$. Since $k$ cannot be the same value under the same $n$, this proves what we want.
+And because of that, it proves the Cauchy product, as required.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;the-fundemental-property-of-exp-x&quot;&gt;The fundemental property of $\exp(x)$&lt;&#x2F;h3&gt;
+&lt;p&gt;Do you remember the &amp;quot;fundemental&amp;quot; thing we talked about? I hope you do. It is known as the fundemental exponential identity,
+which is the &amp;quot;sum law&amp;quot; for exponentation base $e$. To do show it to be true, we will use the newly proved Cauchy product. Let&#x27;s begin:&lt;&#x2F;p&gt;
+&lt;p&gt;$$e^x e^y = (\sum_{i = 0}^\infty \frac{x^i}{i!})(\sum_{j = 0}^\infty \frac{x^j}{j!})$$&lt;&#x2F;p&gt;
+&lt;p&gt;Now, by the Cauchy product, we get:&lt;&#x2F;p&gt;
+&lt;p&gt;$$\sum_{n = 0}^\infty \sum_{k = 0}^n \frac{x^k y^{n - k}}{k!(n - k)!}$$&lt;&#x2F;p&gt;
+&lt;p&gt;We are now very close to finishing the proof. Notice, that the inner sum here resembles quite closely the sum seen in the binomial theorem, except that the $n!$ term is missing.
+Using this fact, we can transform this into:&lt;&#x2F;p&gt;
+&lt;p&gt;$$\sum_{n = 0}^\infty \frac{1}{n!} \sum_{k = 0}^n \frac{n! x^k y^{n - k}}{k!(n - k)!}
+= \sum_{n = 0}^\infty \frac{1}{n!} \sum_{k = 0}^n \binom{n}{k} x^k y^{n - k}
+= \sum_{n = 0}^\infty \frac{(x + y)^n}{n!}$$&lt;&#x2F;p&gt;
+&lt;p&gt;&amp;quot;Hang on...&amp;quot;, you may be asking, &amp;quot;what is this binomial theorem thing, why should it be true?&amp;quot; That is fair enough,
+as we are trying to be relatively elementary, I shouldn&#x27;t expect you to know that. Let&#x27;s prove it, quickly!&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;a-blazingly-fast-binomial-theorem-proof&quot;&gt;A blazingly-fast Binomial theorem proof&lt;&#x2F;h3&gt;
+&lt;p&gt;The binomial theorem states that when you have two numbers, $x$ and $y$, and some natural number $n$, the following is true:&lt;&#x2F;p&gt;
+&lt;p&gt;$$(x + y)^n = \underbrace{xx \dots xx}_{\text{$n$ times}} +
+\underbrace{yx \dots xx}_{\text{$n$ times}} +
+\dots +
+\underbrace{yy \dots yx}_{\text{$n$ times}} +
+\underbrace{yy \dots yy}_{\text{$n$ times}} =
+\sum_{k = 0}^n \binom{n}{k} x^k y^{n - k}$$&lt;&#x2F;p&gt;
+&lt;p&gt;This is the case because as we have seen previously, a product of these same term-size sums is the same picking out all combinations of element products from these sums
+(this is another generalization of the distributive law), e.g: $(1 + x)(1 + x)(1 + x)$ equals all of the ways to pick a single $x$ from these sums times that $x$,
+two $x$s, now times $x^2$, three $x$s, times $x^3$ and of course, zero $x$s (technically, we were also picking ones, but they don&#x27;t matter in our product). &lt;&#x2F;p&gt;
+&lt;p&gt;So what this theorem is is essentially fancy notation for: &amp;quot;all of the different ways to pick 0 $x$s and the remaining $y$s, plus all the ways to pick 1 $x$ and the remaining $y$s...&amp;quot;.
+We multiply the binomial coefficient ($n$ choose $k$) part with the product of the $x$s and $y$s because that&#x27;s the same as adding up every single way to pick out these
+collection of terms.&lt;&#x2F;p&gt;
+&lt;p&gt;With that cleared, we can finish our original proof by rewriting the final expression to get:&lt;&#x2F;p&gt;
+&lt;p&gt;$$\exp(x + y) = e^{x + y} = e^x e^y$$&lt;&#x2F;p&gt;
+&lt;p&gt;By definition of $e^x$, and transitivity.&lt;&#x2F;p&gt;
+&lt;p&gt;From this proof, we can actually answer question 1 for free, which asked why we defined $\exp(x)$ this way.
+The reason is, because this the fundemental property of exponentation is then kept.
+So $\exp(n)$, where $n$ is a natural number is just a product $e$s. $n$ of them to be exact.&lt;&#x2F;p&gt;
+&lt;p&gt;Likewise, this proof, and one more definition, which answers question 2 will finally put us on track to prove all the exponentation laws.
+This definition, is of general exponentation, which we have to define, otherwise identities such as ${(e^x)}^y = e^{xy}$ won&#x27;t be proveable, because they aren&#x27;t even defined.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;real-exponentation-and-the-final-stretch&quot;&gt;Real exponentation and the final stretch&lt;&#x2F;h2&gt;
+&lt;p&gt;Interestingly, the backbone of real exponentation is the logarithm. In this case, the natural one. Using it, we can define real exponentation as $e^{x \ln{b}}$.
+This may make sense to you, if you remember your logarithm laws, but of course, these laws rely on the exponentation laws.
+Despite this, it may be helpful to make sure this fits our common definition of $b^x$ where $x$ is natural.&lt;&#x2F;p&gt;
+&lt;p&gt;If $x$ is natural, then this expression above is the same as $e^{\ln{b^x}}$, because $\ln x + \ln y  = \ln xy$ can be proved using the fundemental property of exponentation,
+which we know to be true. Then, by the natural logarithm&#x27;s definition we get $b^x$.&lt;&#x2F;p&gt;
+&lt;p&gt;So indeed, when $x$ is natural, we get the expected result.&lt;&#x2F;p&gt;
+&lt;p&gt;Can you feel the excitement? With this useful definition, we can finally begin proving the laws from the start, as we have all the tools we need.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;product-law&quot;&gt;Product law&lt;&#x2F;h3&gt;
+&lt;p&gt;By our definition of real exponentation, and the definition of the natural logarithm, we get: $(a^b)^c = e^{c \ln {e ^{b \ln a}}} = e^{bc \ln a}$.
+Finally, by our same exponentation definition we get: $a^{bc}$.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;sum-law&quot;&gt;Sum law&lt;&#x2F;h3&gt;
+&lt;p&gt;Proving the sum law is fairly simple as well. First, notice that: $a^b a^c = e^{b \ln a} e^{c \ln a}$.
+Then, using our fundemental property of exponentation and the exponentation definition, we get: $e^{b \ln a + c \ln a} = e^{(b + c) \ln a} = a^{b + c}$.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;evil-sum-law&quot;&gt;Evil sum law&lt;&#x2F;h3&gt;
+&lt;p&gt;In order to show the evil sum law. We must first do a tiny bit of algebra.&lt;&#x2F;p&gt;
+&lt;p&gt;$$a^0 = a^{b - b} = a^b a^{-b} = 1 \iff a^{-b} = \frac{1}{a^b}$$&lt;&#x2F;p&gt;
+&lt;p&gt;Note that this division is only valid because $a^b$ is always non-zero (assuming $a \neq 0$).
+Using this, we can now prove the evil sum law: $\frac{a^b}{a^c} = a^b \frac{1}{a^c} = a^b a^{-c} = a^{b - c}$. As required.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;distributive-law&quot;&gt;Distributive law&lt;&#x2F;h3&gt;
+&lt;p&gt;The distributive law is actually really similar to our sum law in the way we prove it. Just as last time, we will turn the two terms to their $e$ counterparts and continue from there:
+$a^c b^c = e^{c \ln a} e^{c \ln b} = e^{c \ln a + c \ln b} = e^{c (\ln a + \ln b)}$.
+Now, to finish, remember that logarithm law in start of this section? Let&#x27;s use it: $e^{c \ln ab} = (ab)^c$. This ends our proof.&lt;&#x2F;p&gt;
+&lt;h4 id=&quot;divsion-law&quot;&gt;Divsion law&lt;&#x2F;h4&gt;
+&lt;p&gt;The division law is actually equivalent to our distributive law. I urge you to try and prove it yourself, as an exercise.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;what-s-next-what-s-next-what-s-n-x-e-t&quot;&gt;What&#x27;s next? What&#x27;s next? What&#x27;s N-X-E-T?&lt;&#x2F;h2&gt;
+&lt;p&gt;After quite the long journey, covering a variety of topics, an obvious thing to ask is, &amp;quot;what&#x27;s next?&amp;quot;.
+Wether or not this article feels complete, theres plenty more to talk about, and do. You could for instance,
+expand the Cauchy product proof into a more formal, complete one, see where it doesn&#x27;t actually hold. Or maybe you could think back to our $e$ definitions,
+and learn out new ones and show they are equivalent to the ones shown here. Finally, you could fill in some of the details required to extend exponentation to the complex numbers,
+the final frontier of numbers, pretty much.&lt;&#x2F;p&gt;
+&lt;p&gt;I hope you can use this article as a jumping point to learning about new topics and that you appreciated this look into what might first appear as dull mathematics.
+As mathematicians, even amateur ones, one of the most powerful things we can do is &amp;quot;think deeply of simple things&amp;quot;, and I hope this article allowed you to do that.&lt;&#x2F;p&gt;
+</content>
+	</entry>
+</feed>
