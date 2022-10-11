@@ -38,11 +38,7 @@
         {% block body %}
         <header class="header">
             <nav class="nav">
-                {% if page %}
                 <p class="logo"><a href="{{ get_url(path="/posts", trailing_slash=false ) }}">{{ config.title }}</a></p>
-                {% else %}
-                <h1 class="logo"><a href="{{ get_url(path="/posts", trailing_slash=false ) }}">{{ config.title }}</a></h1>
-                {% endif %}
                 <ul class="menu">
                     {% block sidebar_nav %}{% for link in config.extra.links %}
                     <li><a href="{{ link.url }}" class="menu-item">{{ link.name }}</a></li>
