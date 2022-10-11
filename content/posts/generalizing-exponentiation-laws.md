@@ -188,10 +188,11 @@ The division law is actually equivalent to our distributive law. I urge you to t
 
 ## What's next? What's next? What's N-X-E-T?
 After quite the long journey, covering a variety of topics, an obvious thing to ask is, "what's next?".
-Wether or not this article feels complete, theres plenty more to talk about, and do. You could for instance,
-expand the Cauchy product proof into a more formal, complete one, see where it doesn't actually hold. Or maybe you could think back to our $e$ definitions,
-and learn out new ones and show they are equivalent to the ones shown here. Finally, you could fill in some of the details required to extend exponentation to the complex numbers,
-the final frontier of numbers, pretty much.
+Wether or not this article feels complete, theres plenty more to talk about, and do.
+Maybe try creating a Cauchy product proof that's more formal and complete, and then see when the product doesn't actually hold.
+Or maybe, go back to our $e$ definitions, learn about other ones and show they are all equivalent. Finally, try figuring out when exponentation, as described here, is in fact, undefined.
+It might make you wonder why that's the case, and drive you to see how that effects the laws laid out in here.
 
-I hope you can use this article as a jumping point to learning about new topics and that you appreciated this look into what might first appear as dull mathematics.
-As mathematicians, even amateur ones, one of the most powerful things we can do is "think deeply of simple things", and I hope this article allowed you to do that.
+I hope you can use this article as a jumping point, to learn about new topics, and that you appreciated this look into what might first appear as dull mathematics.
+As mathematicians, even amateur ones, one of the most powerful things we can do is "think deeply of simple things", or in this case perhaps supposedly simple things,
+and I hope this article gave you a glimpse of what it's like to really do that.
