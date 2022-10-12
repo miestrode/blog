@@ -50,7 +50,7 @@ All of what we have seen is absolutely fine, but begins to break down once stude
 The first problem, is that we haven't actually defined yet what it means to raise a number to a non-natural number.
 The second one is that we still need to show our rules even hold for these non-natural powers (assuming they do at all).
 
-This is where pedagogy fails, often neglecting to explain to students how either non-natural powers work, and why our laws here still work with them.
+This is where pedagogy fails, often neglecting to explain to students how non-natural powers work and why our laws here still work with them.
 In this article however, we will tread where teachers dare not, and shed some lights on this problem. Before we proceed however, we should make some definitions.
 
 ## On the natural base, limits and $\exp(x)$
@@ -101,7 +101,7 @@ And because of that, it proves the Cauchy product, as required.
 
 ### The fundemental property of $\exp(x)$
 Do you remember the "fundemental" thing we talked about? I hope you do. It is known as the fundemental exponential identity,
-which is the "sum law" for exponentation base $e$. To do show it to be true, we will use the newly proved Cauchy product. Let's begin:
+which is the "sum law" for exponentation base $e$. To show it to be true, we will use the recently proven Cauchy product. Let's begin:
 
 $$e^x e^y = (\sum_{i = 0}^\infty \frac{x^i}{i!})(\sum_{j = 0}^\infty \frac{x^j}{j!})$$
 

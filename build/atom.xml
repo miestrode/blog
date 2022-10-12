@@ -45,7 +45,7 @@ As required! Just like that, using some simple reasoning, we were able to prove 
 &lt;p&gt;All of what we have seen is absolutely fine, but begins to break down once students start learning about non-natural powers.
 The first problem, is that we haven&#x27;t actually defined yet what it means to raise a number to a non-natural number.
 The second one is that we still need to show our rules even hold for these non-natural powers (assuming they do at all).&lt;&#x2F;p&gt;
-&lt;p&gt;This is where pedagogy fails, often neglecting to explain to students how either non-natural powers work, and why our laws here still work with them.
+&lt;p&gt;This is where pedagogy fails, often neglecting to explain to students how non-natural powers work and why our laws here still work with them.
 In this article however, we will tread where teachers dare not, and shed some lights on this problem. Before we proceed however, we should make some definitions.&lt;&#x2F;p&gt;
 &lt;h2 id=&quot;on-the-natural-base-limits-and-exp-x&quot;&gt;On the natural base, limits and $\exp(x)$&lt;&#x2F;h2&gt;
 &lt;p&gt;If we are going to define exponentation in any way, we should probably first look for a starting point, such as $e$.
@@ -80,7 +80,7 @@ Therefore, each choice of first index, $k$, yields a unique second index, for di
 And because of that, it proves the Cauchy product, as required.&lt;&#x2F;p&gt;
 &lt;h3 id=&quot;the-fundemental-property-of-exp-x&quot;&gt;The fundemental property of $\exp(x)$&lt;&#x2F;h3&gt;
 &lt;p&gt;Do you remember the &amp;quot;fundemental&amp;quot; thing we talked about? I hope you do. It is known as the fundemental exponential identity,
-which is the &amp;quot;sum law&amp;quot; for exponentation base $e$. To do show it to be true, we will use the newly proved Cauchy product. Let&#x27;s begin:&lt;&#x2F;p&gt;
+which is the &amp;quot;sum law&amp;quot; for exponentation base $e$. To show it to be true, we will use the recently proven Cauchy product. Let&#x27;s begin:&lt;&#x2F;p&gt;
 &lt;p&gt;$$e^x e^y = (\sum_{i = 0}^\infty \frac{x^i}{i!})(\sum_{j = 0}^\infty \frac{x^j}{j!})$$&lt;&#x2F;p&gt;
 &lt;p&gt;Now, by the Cauchy product, we get:&lt;&#x2F;p&gt;
 &lt;p&gt;$$\sum_{n = 0}^\infty \sum_{k = 0}^n \frac{x^k y^{n - k}}{k!(n - k)!}$$&lt;&#x2F;p&gt;
