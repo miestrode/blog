@@ -1,5 +1,5 @@
 +++
-title = "Generalizing exponentation laws"
+title = "Generalizing exponentiation laws"
 date = 2022-10-07
 description = "An exploration into some of the definitions we take for granted in mathematics, which in the process uncovers some interesting ideas, interesting-er proofs and more."
 
@@ -10,12 +10,12 @@ math = true
 tags = ["advanced", "math", "algebra", "arithmetic", "combinatorics"]
 +++
 
-*Note: This article, despite it's elementary nature, assumes some basic familiarity with sum notation, infinite sums, combinatorics ($n$ choose $k$) and logarithms*
+*Note: This article, despite its elementary nature, assumes some basic familiarity with sum notation, infinite sums, combinatorics ($n$ choose $k$) and logarithms*
 
 First, you were taught basic arithmetic: counting, multiplying, dividing and such. Then, you learned the "rules" governing it.
-Eventually, you learned about a fairly useful operation, known as exponentation. Exponentation, most would agree, is a very useful operation in Mathematics,
+Eventually, you learned about a fairly useful operation, known as exponentiation. Exponentiation, most would agree, is a very useful operation in Mathematics,
 appearing everywhere from polynomials, to complex numbers, to number theory, combinatorics and more.
-The most common definition of exponentation is as repeated multiplication. For instance, $2^4$ is $2 \times 2 \times 2 \times 2$. In "general":
+The most common definition of exponentiation is as repeated multiplication. For instance, $2^4$ is $2 \times 2 \times 2 \times 2$. In "general":
 
 $$x^n = \underbrace{x \times x \times \dots \times x \times x}_{\text{$n$ times}}$$
 
@@ -39,7 +39,7 @@ For the sake of brevity, I won't show the usual proofs for all of them, but inst
 Let's say we were trying to prove the sum law, how might we do it? We might first look back to the definition we gave exponentation, and continue. Basically:
 $$a^b \times a^c = \underbrace{(a \times a \times \dots \times a \times a)}\_{\text{$b$ times}} \times \underbrace{(a \times a \times \dots \times a \times a)}_{\text{$c$ times}}$$
 
-But look! There is no real separator between the two groups of products in here, so we should be able to say this equals:
+But look! There is no real separator between the two groups of products in here, so we should be able to say this expression equals:
 $$\underbrace{a \times a \times \dots \times a \times a \times a \times a \times \dots \times a \times a}_{\text{$b + c$ times}}$$
 
 Now notice again, by our original definition, this is the same as just writing $a^{b + c}$.
@@ -75,7 +75,7 @@ $$(\sum_{i = 0}^\infty a_i)(\sum_{j = 0}^\infty b_j) = \sum_{k = 0}^\infty \sum_
 
 "Wait, what? A sum of sums?" Indeed. This might look intimidating at first, so it might be worth it to take some time just to understand what is even being said here.
 
-Ready for more? In the spirt of this post, we should probably prove this that this equality above is indeed true.
+Ready for more? In the spirit of this post, we should probably prove this that this equality above is indeed true.
 
 ### The (highly informal) proof, to give you some intuition
 Let us consider for a moment the distributive law for multiplication and addition:
@@ -89,7 +89,7 @@ $$\sum_{i = 0}^n \sum_{j = 0}^n a_i b_j$$
 An obvious idea now is to use something in the spirit of this identity, but this quickly fails, as we get a resulting sum that looks like
 $\sum_{i = 0}^\infty \sum_{j = 0}^\infty a_i b_j$. Whilst this is not wrong, it is not useful to us, because each term of this new sum is actually a sum of infinitely many terms,
 which is something we want to avoid, in order to be able to do more things later on. Despite this, our efforts will not be in vain,
-because constructing the same terms seen in the distributive law, i.e: going over all all combinations,
+because constructing the same terms seen in the distributive law, i.e: going over all combinations,
 is really the core of the Cauchy product (alongside compressing two infinite sums, two limits, into one).
 
 With this in mind, we now have a clear goal of what we want to do. We want to show that no two combinations of elements from each series are the same
@@ -99,9 +99,9 @@ If we fix a particular value for $k$ (in the Cauchy Product, far above), then on
 Therefore, each choice of first index, $k$, yields a unique second index, for different $n$. Since $k$ cannot be the same value under the same $n$, this proves what we want.
 And because of that, it proves the Cauchy product, as required.
 
-### The fundemental property of $\exp(x)$
-Do you remember the "fundemental" thing we talked about? I hope you do. It is known as the fundemental exponential identity,
-which is the "sum law" for exponentation base $e$. To show it to be true, we will use the recently proven Cauchy product. Let's begin:
+### The fundamental property of $\exp(x)$
+Do you remember the "fundamental" thing we talked about? I hope you do. It is known as the fundamental exponential identity,
+which is the "sum law" for exponentiation base $e$. To show it to be true, we will use the recently proven Cauchy product. Let's begin:
 
 $$e^x e^y = (\sum_{i = 0}^\infty \frac{x^i}{i!})(\sum_{j = 0}^\infty \frac{x^j}{j!})$$
 
@@ -130,11 +130,11 @@ $$(x + y)^n = \underbrace{xx \dots xx}\_{\text{$n$ times}} +
 \sum_{k = 0}^n \binom{n}{k} x^k y^{n - k}$$
 
 This is the case because as we have seen previously, a product of these same term-size sums is the same picking out all combinations of element products from these sums
-(this is another generalization of the distributive law), e.g: $(1 + x)(1 + x)(1 + x)$ equals all of the ways to pick a single $x$ from these sums times that $x$,
+(this is another generalization of the distributive law), e.g: $(1 + x)(1 + x)(1 + x)$ equals all the ways to pick a single $x$ from these sums times that $x$,
 two $x$s, now times $x^2$, three $x$s, times $x^3$ and of course, zero $x$s (technically, we were also picking ones, but they don't matter in our product). 
 
-So what this theorem is is essentially fancy notation for: "all of the different ways to pick 0 $x$s and the remaining $y$s, plus all the ways to pick 1 $x$ and the remaining $y$s...".
-We multiply the binomial coefficient ($n$ choose $k$) part with the product of the $x$s and $y$s because that's the same as adding up every single way to pick out these
+So what this theorem is essentially fancy notation for: "all the different ways to pick 0 $x$s and the remaining $y$s, plus all the ways to pick 1 $x$ and the remaining $y$s...".
+We multiply the binomial coefficient ($n$ choose $k$) part with the product of the $x$s and $y$s because that's the same as adding up every single way to pick out this
 collection of terms.
 
 With that cleared, we can finish our original proof by rewriting the final expression to get:
@@ -183,14 +183,14 @@ The distributive law is actually really similar to our sum law in the way we pro
 $a^c b^c = e^{c \ln a} e^{c \ln b} = e^{c \ln a + c \ln b} = e^{c (\ln a + \ln b)}$.
 Now, to finish, remember that logarithm law in start of this section? Let's use it: $e^{c \ln ab} = (ab)^c$. This ends our proof.
 
-#### Divsion law
+#### Division law
 The division law is actually equivalent to our distributive law. I urge you to try and prove it yourself, as an exercise.
 
 ## What's next? What's next? What's N-X-E-T?
 After quite the long journey, covering a variety of topics, an obvious thing to ask is, "what's next?".
-Wether or not this article feels complete, theres plenty more to talk about, and do.
+Regardless of whether this article feels complete to you, there's plenty more to talk about, and do.
 Maybe try creating a Cauchy product proof that's more formal and complete, and then see when the product doesn't actually hold.
-Or maybe, go back to our $e$ definitions, learn about other ones and show they are all equivalent. Finally, try figuring out when exponentation, as described here, is in fact, undefined.
+Or maybe, go back to our $e$ definitions, learn about other ones and show they are all equivalent. Finally, try figuring out when exponentiation, as described here, is in fact, undefined.
 It might make you wonder why that's the case, and drive you to see how that effects the laws laid out in here.
 
 I hope you can use this article as a jumping point, to learn about new topics, and that you appreciated this look into what might first appear as dull mathematics.
